@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Validation</title>
+
+    <script type="text/javascript">
+
+        // for first name
+        function validate() {
+            if (document.f1.fname.value == "") {
+                alert("Please Enter First Name !!!");
+                document.f1.fname.focus();
+                return false;
+            }
+            var data = /^[A-Za-z]+$/;
+            if (!document.f1.fname.value.match(data)) {
+                alert("Please Enter Valid Name !!!");
+                document.f1.fname.focus();
+                return false;
+            }
+            // for last name
+            if (document.f1.lname.value == "") {
+                alert("Please Enter Last Name !!!");
+                document.f1.lname.focus();
+                return false;
+            }
+            var data = /^[A-Za-z]+$/;
+            if (!document.f1.lname.value.match(data)) {
+                alert("Please Enter Valid Name !!!");
+                document.f1.lname.focus();
+                return false;
+            }
+
+            // for phone no 
+            if (document.f1.phoneno.value == "") {
+                alert("Please Enter Phone No. !!!");
+                document.f1.phoneno.focus();
+                return false;
+            }
+
+            if (document.f1.phoneno.value.length != 10) {
+                alert("Please Enter valid Phone No. !!!");
+                document.f1.phoneno.focus();
+                return false;
+            }
+
+            // for profession 
+            if (document.f1.pro[0].checked == false && document.f1.pro[1].checked == false && document.f1.pro[2].checked == false) {
+                alert("Please Select Profession !!!");
+                return false;
+            }
+
+
+            //for account no            
+            if (document.f1.account.value == "") {
+                alert("Please Enter Account No. !!!");
+                document.f1.account.focus();
+                return false;
+            }
+
+            if (document.f1.re_account.value == "") {
+                alert("Please Enter Account No. !!!");
+                document.f1.re_account.focus();
+                return false;
+            }
+
+            if (document.f1.account.value != document.f1.re_account.value) {
+                alert("Account Did Not Matched !!!");
+                document.f1.re_account.focus();
+                return false;
+            }
+
+
+            // for shop name 
+
+            if (document.f1.com_name.value == "") {
+                alert("Please Enter Company Name !!!");
+                document.f1.com_name.focus();
+                return false;
+            }
+
+            // for company address
+            if (document.f1.com_add.value == "") {
+                alert("Please Enter Company Address !!!");
+                document.f1.com_add.focus();
+                return false;
+            }
+
+            // Shop act option
+            if (document.f1.shop_act[0].checked == false && document.f1.shop_act[1].checked == false) {
+                alert("Please Select Shop Act Option !!!");
+                return false;
+            }
+
+        }
+
+    </script>
+
+    <style type="text/css">
+        #formdiv {
+            background: linear-gradient(to bottom right, purple, deeppink, purple);
+            color: white;
+            padding: 40px;
+            width: 40%;
+            margin-left: 2%;
+            margin-top: 2%;
+        }
+
+        body {
+            background-image: url(images/reg.jpg);
+            background-size: cover;
+        }
+
+        .btnclass {
+            padding: 7px 25px;
+            font-size: 17px;
+            border: none;
+            border-radius: 3px;
+            background-color: limegreen;
+            color: white;
+        }
+
+        .btnclass:hover {
+            background-color: #000123;
+            cursor: pointer;
+        }
+
+        .inputclass {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        h2 {
+            color: aqua;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="formdiv">
+        <form name="f1" action="success.html">
+            <table>
+                <tr>
+                    <th colspan="2">
+                        <h2>User Registration Form</h2>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="fname" class="inputclass"></td>
+                </tr>
+
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" name="lname" class="inputclass"></td>
+                </tr>
+
+                <tr>
+                    <td>phone No</td>
+                    <td><input type="number" name="phoneno" class="inputclass"></td>
+                </tr>
+
+                <tr>
+                    <td>Profession</td>
+                    <td>
+                        <input type="radio" name="pro" value="job">job
+                        <input type="radio" name="pro" value="Buisness">Buisness
+                        <input type="radio" name="pro" value="self">self Employee
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Account No</td>
+                    <td><input type="number" name="account" class="inputclass"></td>
+                </tr>
+
+                <tr>
+                    <td>Retypr Account No</td>
+                    <td><input type="number" name="re_account" class="inputclass"></td>
+                </tr>
+
+                <tr>
+                    <td>Company/Shop Name</td>
+                    <td><input type="text" name="com_name" class="inputclass"></td>
+                </tr>
+
+                <tr>
+                    <td>Company/Shop Address</td>
+                    <td><textarea cols="50" rows="3" name="com_add" class="inputclass"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td>Shop Act</td>
+                    <td>
+                        <input type="radio" name="shop_act" value="Yes">Yes
+                        <input type="radio" name="shop_act" value="No">No
+                    </td>
+                </tr>
+
+                <!-- <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="email"></td>
+                </tr> -->
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="register" class="btnclass" onclick=" return validate()">
+                        <input type="reset" value="Reset" class="btnclass">
+                    </td>
+                </tr>
+
+
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html>
